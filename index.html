@@ -24,6 +24,20 @@
         main {
             flex: 1;
             padding: 1rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            width: 200px;
+            text-align: center;
+            background-color: #f9f9f9;
         }
 
         footer {
@@ -40,9 +54,15 @@
     </header>
 
     <main>
-        <h2>Veterinary appointment</h2>
-        <h2>Pet-Shop</h2>
-        <h2>Beauty parlor</h2>
+        <div class="card">
+            <h2>Veterinary Appointment</h2>
+        </div>
+        <div class="card">
+            <h2>Pet-Shop</h2>
+        </div>
+        <div class="card">
+            <h2>Beauty Parlor</h2>
+        </div>
     </main>
 
     <footer>
