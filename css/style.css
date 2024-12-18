@@ -1,0 +1,13 @@
+/* Custom Styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
