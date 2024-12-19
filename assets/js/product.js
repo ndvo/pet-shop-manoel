@@ -12,7 +12,7 @@
 
         data.forEach(item => {
             const row = template.content.cloneNode(true);
-  row.querySelector('.card-img-top').setAttribute('src', `img/${item.image}`);
+  row.querySelector('.card-img-top').setAttribute('src', `assets/img/${item.image}`);
   row.querySelector('.card-title').textContent = item.product;
   row.querySelector('.card-text').textContent = item.price;
   productContainer.appendChild(row);
