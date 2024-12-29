@@ -1,18 +1,24 @@
-const template = document.querySelector('#product-template');
-const productContainer = document.querySelector('#product-container');
+document.addEventListener('DOMContentLoaded', () => {
 
-if (localStorage.getItem('products')) {
-      console.log(localStorage.getItem('products'));
-      let data = JSON.parse(localStorage.getItem('products')) || [];
+      insertLocalStorage();
+      fillProductsData();
 
-      data.forEach(item => {
-            const row = template.content.cloneNode(true);
-            row.querySelector('.card-img-top').setAttribute('src', `assets/img/${item.image}`);
-            row.querySelector('.card-title').textContent = item.name;
-            row.querySelector('.card-text').textContent = "$ " + item.price.toFixed(2);
-            productContainer.appendChild(row);
-      });
-}
+      function fillProductsData() {
+            let template = document.querySelector('#product-template');
+            let productContainer = document.querySelector('#product-container');
+           
+            let productsData = JSON.parse(localStorage.getItem('products')) || [];
+
+            productsData.forEach(item => {
+                  const row = template.content.cloneNode(true);
+                  row.querySelector('.card-img-top').setAttribute('src', `assets/img/${item.image}`);
+                  row.querySelector('.card-title').textContent = item.name;
+                  row.querySelector('.card-text').textContent = "$ " + item.price.toFixed(2);
+                  productContainer.appendChild(row);
+            });
+      }
+});
+
 
 
 

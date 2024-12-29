@@ -17,5 +17,3 @@ function insertLocalStorage() {
         localStorage.setItem('products', JSON.stringify(listProducts));
     }
 }
-
-
