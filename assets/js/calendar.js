@@ -14,7 +14,7 @@ function renderCalendar() {
   calendar.querySelectorAll('.calendar-cell').forEach(cell => cell.remove());
 
   const year = currentDate.getFullYear();
-  const month = currentDate.getMonth();
+  const month = currentDate.getMonth() +1;
   currentMonth.textContent = `${currentDate.toLocaleString('default', { month: 'long' })} ${year}`;
 
   const firstDay = new Date(year, month, 1).getDay();
@@ -30,7 +30,11 @@ function renderCalendar() {
     const dayCell = document.createElement('div');
     dayCell.classList.add('calendar-cell');
     dayCell.textContent = day;
+        dayCell.addEventListener('click', () => {
+      window.location.href = `schedule.html?day=${day}&month=${month}&year=${year}`;
+    })
     calendar.appendChild(dayCell);
+
   }
 }
 
