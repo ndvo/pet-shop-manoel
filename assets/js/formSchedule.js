@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
             petSpecies: formData.get('petSpecies')
         };
 
-        // Salvar no localStorage
         const appointments = JSON.parse(localStorage.getItem('appointments')) || [];
         appointments.push(appointment);
         localStorage.setItem('appointments', JSON.stringify(appointments));
