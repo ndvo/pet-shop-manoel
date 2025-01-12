@@ -24,6 +24,5 @@ function createHourBlock(hour, selectedDay, selectedMonth, selectedYear) {
     hourBlock.addEventListener('click', () => {
         window.location.href = `formSchedule.html?day=${selectedDay}&month=${selectedMonth}&year=${selectedYear}&hour=${hour}`;
     });
-    //console.log(hourBlock);
     return hourBlock;
   };
