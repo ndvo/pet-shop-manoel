@@ -1,15 +1,3 @@
-
-function createHourBlock(hour) {
-  const hourBlock = document.createElement('div');
-  hourBlock.classList.add('hour-block', 'p-3', 'border', 'text-center', 'mb-2');
-  hourBlock.textContent = `${hour}:00 - ${hour + 1}:00`;
-
-  hourBlock.addEventListener('click', () => {
-      window.location.href = `formSchedule.html?day=${selectedDay}&month=${selectedMonth}&year=${selectedYear}&hour=${hour}`;
-  });
-  return hourBlock;
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const selectedDay = urlParams.get('day');
@@ -22,8 +10,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const scheduleGrid = document.querySelector('.schedule-grid');
 
     for (let hour = 8; hour <= 18; hour++) {
-        const hourBlock = createHourBlock(hour);
-
+        const hourBlock = createHourBlock(hour, selectedDay, selectedMonth, selectedYear);
         scheduleGrid.appendChild(hourBlock);
     }
 });
+
+
+function createHourBlock(hour, selectedDay, selectedMonth, selectedYear) {
+    const hourBlock = document.createElement('div');
+    hourBlock.classList.add('hour-block', 'p-3', 'border', 'text-center', 'mb-2');
+    hourBlock.textContent = `${hour}:00 - ${hour + 1}:00`;
+  
+    hourBlock.addEventListener('click', () => {
+        window.location.href = `formSchedule.html?day=${selectedDay}&month=${selectedMonth}&year=${selectedYear}&hour=${hour}`;
+    });
+    //console.log(hourBlock);
+    return hourBlock;
+  };
