@@ -1,11 +1,23 @@
-
 window.onload = function () {
+  setInitialDateFromURL();
   renderCalendar();
-
-}
-
+};
 
 let currentDate = new Date();
+
+function setInitialDateFromURL() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const yearParam = urlParams.get('year');
+  const monthParam = urlParams.get('month');
+
+  if (yearParam && monthParam) {
+    const year = parseInt(yearParam, 10);
+    const month = parseInt(monthParam, 10) - 1;
+    if (!isNaN(year) && !isNaN(month) && month >= 0 && month <= 11) {
+      currentDate = new Date(year, month, 1);
+    }
+  }
+}
 
 function renderCalendar() {
   const calendar = document.querySelector('.calendar');
@@ -30,9 +42,9 @@ function renderCalendar() {
     const dayCell = document.createElement('div');
     dayCell.classList.add('calendar-cell');
     dayCell.textContent = day;
-        dayCell.addEventListener('click', () => {
+    dayCell.addEventListener('click', () => {
       window.location.href = `schedule.html?day=${day}&month=${month + 1}&year=${year}`;
-    })
+    });
     calendar.appendChild(dayCell);
 
   }

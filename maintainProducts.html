@@ -4,22 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
     <title>Veterinary Clinic</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/loadcomponents.js"></script>
     <script src="assets/js/loadLocalStorage.js" defer></script>
     <script src="assets/js/maintainProducts.js" defer></script>
-    
-
 </head>
 
-<body class="d-flex flex-column min-vh-100">
-    <header class="bg-dark text-white py-3 text-center">
-        <h1>Product Management</h1>
-    </header>
-
+<body>
+    <div id="header-placeholder"></div>
     <main class="container my-5">
-        <h2 class="text-center mb-4">Manage Your Products</h2>
+        <h2 class="text-center mb-4">Manage Products</h2>
         <div class="table-responsive">
             <table class="table table-hover table-bordered">
                 <thead class="table-dark">
@@ -31,9 +30,7 @@
                         <th scope="col" class="text-center">Actions</th>
                     </tr>
                 </thead>
-                <tbody id="productTableBody">
-                    <!-- Products will be loaded here dynamically -->
-                </tbody>
+                <tbody id="productTableBody"> </tbody>
             </table>
         </div>
     </main>
