@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scheduleGrid.appendChild(hourBlock);
     }
 
-    addButtonSchedule();
+  addButtonSchedule();
 
     function addButtonSchedule() {
         const button = document.getElementById('scheduleButton');
@@ -32,11 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
 function createHourBlock(hour, selectedDay, selectedMonth, selectedYear) {
     const hourBlock = document.createElement('div');
     hourBlock.classList.add('hour-block', 'p-3', 'border', 'text-center', 'mb-2');
     hourBlock.textContent = `${hour}:00 - ${hour + 1}:00`;
-
     hourBlock.addEventListener('click', () => {
         window.location.href = `formSchedule.html?day=${selectedDay}&month=${selectedMonth}&year=${selectedYear}&hour=${hour}`;
     });

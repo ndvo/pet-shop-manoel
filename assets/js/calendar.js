@@ -46,7 +46,6 @@ function renderCalendar() {
       window.location.href = `schedule.html?day=${day}&month=${month + 1}&year=${year}`;
     });
     calendar.appendChild(dayCell);
-
   }
 }
 
