@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.href = url;
             });
         } else {
-            console.error('Elemento com ID "scheduleButton" não encontrado.');
+            console.error('Element with ID "scheduleButton" not found.');
         }
     }
 });
