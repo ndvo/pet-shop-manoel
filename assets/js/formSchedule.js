@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         alert('Appointment successfully booked!');
 
-        window.location.href = 'index.html';
+        const url = `schedule.html?day=${appointment.day}&month=${appointment.month}&year=${appointment.year}`;
+        window.location.href = url;
     });
 });

@@ -49,6 +49,19 @@ function createHourBlock(hour, selectedDay, selectedMonth, selectedYear, storedA
         const owners = listAppointmentsHour.map(appt => appt.ownerName).join(", ");
         hourBlock.textContent += ` (Occupied - ${owners})`;
 
+        const cancelButton = document.createElement('button');
+        cancelButton.textContent = "Cancel booking";
+        cancelButton.classList.add('btn', 'btn-warning', 'btn-sm', 'ml-2');
+        cancelButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (confirm(`Do you really want to cancel the booking at ${hour}:00?`)) {
+                cancelAppointment(selectedDay, selectedMonth, selectedYear, hour);
+            }
+        });
+
+        hourBlock.appendChild(document.createElement("br"));
+        hourBlock.appendChild(cancelButton);
+
     } else {
         hourBlock.addEventListener('click', () => {
             window.location.href = `formSchedule.html?day=${selectedDay}&month=${selectedMonth}&year=${selectedYear}&hour=${hour}`;
@@ -58,12 +71,26 @@ function createHourBlock(hour, selectedDay, selectedMonth, selectedYear, storedA
 }
 
 function getStoredAppointments(day, month, year) {
-    const storedData = localStorage.getItem('appointments');
-    const listAppointments = storedData ? JSON.parse(storedData) : [];
-
+    const listAppointments = getStorageAppointments();
     return listAppointments
         .filter((appointment) => {
             return appointment.day === day && appointment.month === month && appointment.year === year;
         });
+}
 
+function getStorageAppointments() {
+    const storedData = localStorage.getItem('appointments');
+    return storedData ? JSON.parse(storedData) : [];    
+}
+
+function cancelAppointment(day, month, year, hour) {
+    let listAppointments = getStorageAppointments();
+    const updatedAppointments = listAppointments.filter(appointment =>
+        !(appointment.day === day && appointment.month === month && appointment.year === year && appointment.hour == hour)
+    );
+
+    localStorage.setItem('appointments', JSON.stringify(updatedAppointments));
+
+    alert(`Appointment at ${hour}:00 successfully canceled!`);
+    location.reload();
 }
